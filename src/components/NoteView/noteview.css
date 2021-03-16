@@ -1,0 +1,49 @@
+.note-v {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  color: #202124;
+  font-size: 15px;
+  margin: 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  cursor: default;
+  font-family: "Google Sans", "Roboto", Arial, sans-serif;
+  line-height: 1.5rem;
+  width: 240px;
+}
+.note-v:hover {
+  box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+}
+.note-v:hover footer {
+  visibility: visible;
+}
+.note-v header {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.00625em;
+  padding: 12px 16px 0px 16px;
+  min-height: 24px;
+  text-align: start;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.note-v main {
+  font-size: 1.125rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  padding: 4px 16px 12px 16px;
+  text-align: start;
+  word-wrap: break-word;
+}
+.note-v footer {
+  padding: 0px 8px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  height: 34px;
+  visibility: hidden;
+}

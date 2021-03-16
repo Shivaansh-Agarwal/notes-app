@@ -1,0 +1,66 @@
+.color-pallete-icon:hover .color-pallete {
+  visibility: visible;
+}
+.color-pallete {
+  position: absolute;
+  height: 102px;
+  width: 122px;
+  background: white;
+  outline: 1px solid rgb(199, 194, 194);
+  bottom: 20px;
+  left: 10px;
+  visibility: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  padding: 5px 7px 3px 7px;
+  align-items: center;
+  cursor: default;
+  z-index: 10;
+}
+.btn-color {
+  width: 22px;
+  height: 22px;
+  border: 0.0006rem solid #bcbec2;
+  border-radius: 1000px;
+  cursor: pointer;
+}
+.btn-color:hover {
+  border: 0.0006rem solid black;
+}
+.color-default {
+  background: white;
+}
+.color-red {
+  background: #f28b82;
+}
+.color-orange {
+  background: #fbbc04;
+}
+.color-yellow {
+  background: #fff475;
+}
+.color-green {
+  background: #ccff90;
+}
+.color-teal {
+  background: #a7ffeb;
+}
+.color-blue {
+  background: #cbf0f8;
+}
+.color-darkblue {
+  background: #aecbfa;
+}
+.color-purple {
+  background: #d7aefb;
+}
+.color-pink {
+  background: #fdcfe8;
+}
+.color-brown {
+  background: #e6c9a8;
+}
+.color-gray {
+  background: #e8eaed;
+}

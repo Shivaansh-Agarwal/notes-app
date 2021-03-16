@@ -1,0 +1,34 @@
+.pin {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  cursor: pointer;
+  border-radius: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+.pin button {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 5px;
+  border-radius: 1000px;
+  cursor: pointer;
+  outline: none;
+}
+
+/*TODO: Correct these.*/
+.pin button:hover {
+  background-color: rgba(95, 99, 104, 0.157);
+}
+.note-v > .note-btn-pin {
+  visibility: hidden;
+}
+.note-v:hover > .note-btn-pin {
+  visibility: visible;
+}
