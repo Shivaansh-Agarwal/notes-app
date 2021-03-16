@@ -7,8 +7,6 @@ const NoteView = ({ id, noteTitle, noteBody, noteColor, isPinned }) => {
   const [color, setColor] = useState(noteColor);
   const [isNotePinned, setIsNotePinned] = useState(isPinned);
   const {
-    note,
-    setNote,
     notesList,
     setNotesList,
     notesListPinned,
