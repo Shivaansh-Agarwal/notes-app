@@ -5,7 +5,9 @@ import { useNotesDetailsContext } from "../../contexts/notesDetails-context";
 
 const NoteView = ({ id, noteTitle, noteBody, noteColor, isPinned }) => {
   const [color, setColor] = useState(noteColor);
+  if (noteColor !== color) setColor(noteColor);
   const [isNotePinned, setIsNotePinned] = useState(isPinned);
+  if (isPinned !== isNotePinned) setIsNotePinned(isPinned);
   const {
     notesList,
     setNotesList,
