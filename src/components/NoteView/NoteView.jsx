@@ -1,56 +1,76 @@
 import React, { useState } from "react";
 import Pin from "../Pin";
 import ColorPallete from "../ColorPallete";
+import NoteEdit from "../NoteEdit";
 import { useNotesDetailsContext } from "../../contexts/notesDetails-context";
 
 const NoteView = ({ id, noteTitle, noteBody, noteColor, isPinned }) => {
+  const [title, setTitle] = useState(noteTitle);
+  const [body, setBody] = useState(noteBody);
   const [color, setColor] = useState(noteColor);
-  if (noteColor !== color) setColor(noteColor);
   const [isNotePinned, setIsNotePinned] = useState(isPinned);
-  if (isPinned !== isNotePinned) setIsNotePinned(isPinned);
-  const {
-    notesList,
-    setNotesList,
-    notesListPinned,
-    setNotesListPinned,
-  } = useNotesDetailsContext();
+  const [editNoteVisibility, setEditNoteVisibility] = useState(false);
+  const { notesList, setNotesList } = useNotesDetailsContext();
 
-  function togglePin() {
-    if (isNotePinned) {
-      const pinnedNoteToRemove = notesListPinned.find(
-        (currNote) => currNote.id === id
-      );
-      pinnedNoteToRemove.isPinned = false;
-      const newNotesList = notesListPinned.filter(
-        (currNote) => currNote.id !== id
-      );
-      setNotesListPinned(newNotesList);
-      setNotesList([pinnedNoteToRemove, ...notesList]);
-    } else {
-      const noteToRemove = notesList.find((currNote) => currNote.id === id);
-      noteToRemove.isPinned = true;
-      const newNotesList = notesList.filter((currNote) => currNote.id !== id);
-      setNotesList(newNotesList);
-      setNotesListPinned([noteToRemove, ...notesListPinned]);
-    }
+  function changeNoteColor(newColor) {
+    setNotesList((currNotesList) => {
+      const newNotesList = currNotesList.map((currNote) => {
+        if (currNote.id !== id) {
+          return currNote;
+        } else {
+          return { ...currNote, noteColor: newColor };
+        }
+      });
+      return newNotesList;
+    });
   }
+
+  function togglePinAndUpdateList() {
+    const currNote = notesList.find((note) => note.id === id);
+    const newNotesList = notesList.filter((note) => note.id !== id);
+    setNotesList([{ ...currNote, isPinned: !isNotePinned }, ...newNotesList]);
+  }
+
+  function openEditMode() {
+    setEditNoteVisibility(true);
+  }
+
   return (
-    <div className={`note-v ${color}`}>
-      <header>
-        <div>{noteTitle}</div>
-        <Pin
-          isPinned={isNotePinned}
-          setIsPinned={setIsNotePinned}
-          togglePin={togglePin}
+    <div>
+      <div className={`note-v ${color}`} onClick={openEditMode}>
+        <header>
+          <div>{title}</div>
+          <Pin
+            isPinned={isNotePinned}
+            setIsPinned={setIsNotePinned}
+            togglePin={togglePinAndUpdateList}
+          />
+        </header>
+        <main>{body}</main>
+        <footer>
+          <ColorPallete
+            setNoteColor={setColor}
+            changeNoteColor={changeNoteColor}
+          />
+          <div className={`note-btn`}>
+            <span className="material-icons">delete</span>
+          </div>
+        </footer>
+      </div>
+      {editNoteVisibility && (
+        <NoteEdit
+          title={title}
+          setTitle={setTitle}
+          body={body}
+          setBody={setBody}
+          color={color}
+          setColor={setColor}
+          isNotePinned={isNotePinned}
+          setIsNotePinned={setIsNotePinned}
+          setEditNoteVisibility={setEditNoteVisibility}
+          togglePin={togglePinAndUpdateList}
         />
-      </header>
-      <main>{noteBody}</main>
-      <footer>
-        <ColorPallete setNoteColor={setColor} />
-        <div className={`note-btn`}>
-          <span className="material-icons">delete</span>
-        </div>
-      </footer>
+      )}
     </div>
   );
 };

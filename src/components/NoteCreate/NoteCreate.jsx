@@ -11,7 +11,7 @@ const NoteCreate = () => {
   const [isPinned, setIsPinned] = useState(false);
   const [noteColor, setNoteColor] = useState(COLORS.DEFAULT);
   const [isWriteModeOn, setIsWriteModeOn] = useState(false);
-  const { setNotesList, setNotesListPinned } = useNotesDetailsContext();
+  const { setNotesList } = useNotesDetailsContext();
 
   function getNewNote() {
     return {
@@ -26,15 +26,9 @@ const NoteCreate = () => {
   function createNote() {
     if (noteTitle !== "" || noteBody !== "") {
       let note = getNewNote();
-      if (isPinned) {
-        setNotesListPinned((currNotesList) => {
-          return [...currNotesList, note];
-        });
-      } else {
-        setNotesList((currNotesList) => {
-          return [...currNotesList, note];
-        });
-      }
+      setNotesList((currNotesList) => {
+        return [...currNotesList, note];
+      });
     }
   }
 

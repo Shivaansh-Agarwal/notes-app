@@ -1,9 +1,10 @@
 import React from "react";
 
-const ColorPallete = ({ setNoteColor }) => {
+const ColorPallete = ({ setNoteColor, changeNoteColor }) => {
   function changeColor(e) {
     let color = e.target.className.split(" ")[1];
     setNoteColor(color);
+    if (changeNoteColor) changeNoteColor(color);
     e.stopPropagation();
   }
   return (

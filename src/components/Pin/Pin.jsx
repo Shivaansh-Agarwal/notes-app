@@ -3,7 +3,8 @@ import imgPinActive from "./pin-active.svg";
 import imgPinInactive from "./pin-inactive.svg";
 
 const Pin = ({ isPinned, setIsPinned, togglePin }) => {
-  function changePinStatus() {
+  function changePinStatus(e) {
+    e.stopPropagation();
     setIsPinned((currIsPinned) => !currIsPinned);
     if (togglePin) {
       togglePin();

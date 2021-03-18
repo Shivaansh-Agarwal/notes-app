@@ -1,0 +1,51 @@
+.note-e-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  background: rgba(121, 122, 124, 0.5);
+  display: flex;
+}
+
+.note-e {
+  position: relative;
+  margin: 200px auto auto auto;
+  width: 600px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  font-size: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  cursor: default;
+  font-family: "Google Sans", "Roboto", Arial, sans-serif;
+  line-height: 1.5rem;
+}
+
+.note-e-title {
+  outline: 1px solid black;
+  padding: 10px 15px;
+  width: 85%;
+}
+.note-e input,
+.note-e textarea {
+  border: 0px;
+  width: 100%;
+  outline: none;
+  background-color: transparent;
+}
+
+.note-e-title input::placeholder {
+  font-weight: 600;
+  color: #8086a9;
+}
+.note-e-body {
+  outline: 1px solid black;
+  padding: 12px 16px;
+  width: 95%;
+}
+.note-e-body input::placeholder {
+  color: #8086a9;
+}

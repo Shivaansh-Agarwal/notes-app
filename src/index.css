@@ -3,6 +3,7 @@
 @import url("./components/Pin/pin.css");
 @import url("./components/NotesLists/notesList.css");
 @import url("./components/NoteView/noteview.css");
+@import url("./components/NoteEdit/note-edit.css");
 
 body {
   margin: 0;

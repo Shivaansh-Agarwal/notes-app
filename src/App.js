@@ -1,18 +1,12 @@
 import React from "react";
 import NoteCreate from "./components/NoteCreate";
-import { NotesList, NotesListPinned } from "./components/NotesLists";
-import NoteEdit from "./components/NoteEdit";
-import { NotesDetailsProvider } from "./contexts/notesDetails-context";
+import NotesList from "./components/NotesLists";
 
 function App() {
   return (
     <div className="App">
-      <NotesDetailsProvider>
-        <NoteCreate />
-        <NotesListPinned />
-        <NotesList />
-        <NoteEdit />
-      </NotesDetailsProvider>
+      <NoteCreate />
+      <NotesList />
     </div>
   );
 }
